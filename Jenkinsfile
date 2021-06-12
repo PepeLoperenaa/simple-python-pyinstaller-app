@@ -18,7 +18,6 @@ pipeline {
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
                 //This stash step saves the Python source code and compiled byte code files from the sources
                 //workspace directory for use in later stages.
-                //this is a test to see if it works
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         } stage('Test') {
