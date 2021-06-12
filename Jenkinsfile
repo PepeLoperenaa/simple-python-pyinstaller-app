@@ -1,6 +1,6 @@
 pipeline {
-    //None parameter in the agent section means that no global agent will be allocated for the entire Pipeline’s
-    //execution and that each stage directive must specify its own agent section.
+//None parameter in the agent section means that no global agent will be allocated for the entire Pipeline’s
+//execution and that each stage directive must specify its own agent section.
     agent none
     stages {
         stage('Build') {
@@ -20,7 +20,8 @@ pipeline {
                 //workspace directory for use in later stages.
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
-        } stage('Test') {
+        }
+        stage('Test') {
             agent {
                 docker {
                     //This image parameter downloads the qnib:pytest Docker image and runs this image as a
