@@ -46,7 +46,8 @@ pipeline {
                     junit 'test-reports/results.xml'
                 }
             }
-        } stage('Deliver') {
+        }
+        stage('Deliver') {
                     agent any
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
                     environment {
@@ -76,7 +77,7 @@ pipeline {
                             archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals"
                             sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                         }
-                }
+                    }
         }
     }
 }
